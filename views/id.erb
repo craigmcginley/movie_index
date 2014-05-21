@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <title><%= @movie[:title] %></title>
+  </head>
+
+  <body>
+  <h2><%= @movie[:title] %></h2>
+
+      <ul>
+        <li>
+          <b>Year:</b> <%= @movie[:year] %>
+        </li>
+        <% if @movie[:synopsis] == "" || @movie[:synopsis] == nil %>
+        <% else %>
+        <li>
+          <b>Synopsis:</b> <%= @movie[:synopsis] %>
+        </li>
+        <% end %>
+        <li>
+          <b>Rating:</b> <%= @movie[:rating] %>
+        </li>
+        <li>
+          <b>Genre:</b> <%= @movie[:genre] %>
+        </li>
+        <li>
+          <b>Studio:</b> <%= @movie[:studio] %>
+        </li>
+      </ul>
+
+  </body>
+
+</html>
