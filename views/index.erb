@@ -16,19 +16,14 @@
     <ul>
       <% if @search_movies == [] %>
         <%= @no_results %>
-        <% @display_movies.each do |movie| %>
-          <li>
-            <a href="<%= "/movies/#{movie[:id]}" %>"><%= movie[:title] %></a>
-          </li>
-        <% end %>
-      <% else %>
-        <% @search_movies.each do |movie| %>
-          <li>
-            <a href="<%= "/movies/#{movie[:id]}" %>"><%= movie[:title] %></a>
-          </li>
-        <% end %>
+      <% end %>
+      <% @display_movies.each do |movie| %>
+        <li>
+          <a href="<%= "/movies/#{movie[:id]}" %>"><%= movie[:title] %></a>
+        </li>
       <% end %>
     </ul>
+
     <form action="/movies" method="get">
       <label for="page">Jump to Page: </label>
       <input type="number" name="page" id="page" min="1" max="<%= @max_length %>" />

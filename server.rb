@@ -15,8 +15,19 @@ get '/movies' do
   @movies = get_movie_data
   @display_movies = []
   @no_results = ""
-
   @search_movies = []
+
+  if @movies.length % 20 == 0
+    @max_length = (@movies.length/20)
+  else
+    @max_length = ((@movies.length/20) + 1)
+  end
+  if params[:page] == nil
+    page = 1
+  end
+
+  @display_movies = @movies[(20*(page-1))..(20*(page-1)+19)]
+
   if search == ""
   else
     @movies.each do |movie|
@@ -29,18 +40,8 @@ get '/movies' do
         @no_results = "***No search results***"
       end
     end
+    @display_movies = @search_movies[(20*(page-1))..(20*(page-1)+19)]
   end
-
-  if @movies.length % 20 == 0
-    @max_length = (@movies.length/20)
-  else
-    @max_length = ((@movies.length/20) + 1)
-  end
-  if params[:page] == nil
-    page = 1
-  end
-
-  @display_movies = @movies[(20*(page-1))..(20*(page-1)+19)]
 
   erb :index
 end
