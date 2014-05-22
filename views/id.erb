@@ -7,6 +7,13 @@
   </head>
 
   <body>
+
+    <form action="/movies" method="get">
+      <label for="query">Search: </label>
+      <input type="text" name="query" id="query" />
+      <input type="submit" value="Search" />
+    </form>
+
   <h2><%= @movie[:title] %></h2>
 
       <ul>
@@ -29,6 +36,12 @@
           <b>Studio:</b> <%= @movie[:studio] %>
         </li>
       </ul>
+
+    <form action="/movies" method="get">
+      <label for="page">Jump to Page: </label>
+      <input type="number" name="page" id="page" min="1" max="<%= @max_length %>" />
+      <input type="submit" value="Go" />
+    </form>
 
   </body>
 
