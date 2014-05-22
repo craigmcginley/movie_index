@@ -67,7 +67,7 @@ get '/movies' do
     @display_movies = search(search, @movies)
   end
 
-  erb :index2
+  erb :index
 end
 
 get '/movies/:id' do
@@ -81,5 +81,5 @@ get '/movies/:id' do
     end
   end
 
-  erb :id2
+  erb :id
 end
